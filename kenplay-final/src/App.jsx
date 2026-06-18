@@ -53,7 +53,7 @@ function AppContent() {
         <Sidebar />
 
         <footer className="site-footer" role="contentinfo">
-          <div>© <strong>KenPlay</strong> — </div>
+          <div>© <strong>KenPlay</strong> — Matias Gonzalez Programacion front end IEI-N3-P2-C1 Victor Vasquez </div>
           <div style={{ color: 'var(--muted)' }}>Soporte · Términos · Privacidad</div>
         </footer>
       </div>
