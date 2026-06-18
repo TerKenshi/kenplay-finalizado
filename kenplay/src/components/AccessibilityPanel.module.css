@@ -1,0 +1,214 @@
+.wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Botón que abre el panel */
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: inherit;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.trigger:hover {
+  background: rgba(123,75,255,0.25);
+  border-color: rgba(123,75,255,0.6);
+  transform: scale(1.04);
+}
+
+:global([data-theme="light"]) .trigger {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.15);
+}
+
+:global([data-theme="light"]) .trigger:hover {
+  background: rgba(106,61,232,0.12);
+  border-color: rgba(106,61,232,0.4);
+}
+
+/* Panel desplegable */
+.panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  z-index: 500;
+  animation: popIn 0.2s ease;
+  overflow: hidden;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+:global([data-theme="light"]) .panel {
+  border-color: rgba(0,0,0,0.1);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+:global([data-theme="light"]) .panelHeader {
+  border-bottom-color: rgba(0,0,0,0.08);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.closeBtn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+:global([data-theme="light"]) .closeBtn:hover {
+  color: #000;
+  background: rgba(0,0,0,0.08);
+}
+
+/* Sección interna */
+.section {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+:global([data-theme="light"]) .section {
+  border-bottom-color: rgba(0,0,0,0.06);
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+/* Botón de tema dentro del panel */
+.optionBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: rgba(123,75,255,0.1);
+  border: 1px solid rgba(123,75,255,0.25);
+  color: inherit;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.optionBtn:hover {
+  background: rgba(123,75,255,0.22);
+  border-color: rgba(123,75,255,0.5);
+}
+
+:global([data-theme="light"]) .optionBtn {
+  background: rgba(106,61,232,0.08);
+  border-color: rgba(106,61,232,0.2);
+}
+
+:global([data-theme="light"]) .optionBtn:hover {
+  background: rgba(106,61,232,0.15);
+}
+
+/* Controles de fuente */
+.fontRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fontBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: inherit;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-weight: 700;
+  transition: background 0.18s, border-color 0.18s, transform 0.12s;
+  flex-shrink: 0;
+}
+
+.fontBtn:hover:not(:disabled) {
+  background: rgba(123,75,255,0.2);
+  border-color: rgba(123,75,255,0.5);
+  transform: scale(1.08);
+}
+
+.fontBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+:global([data-theme="light"]) .fontBtn {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.12);
+}
+
+:global([data-theme="light"]) .fontBtn:hover:not(:disabled) {
+  background: rgba(106,61,232,0.12);
+  border-color: rgba(106,61,232,0.4);
+}
+
+/* Barra de progreso del tamaño */
+.fontBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+:global([data-theme="light"]) .fontBar {
+  background: rgba(0,0,0,0.1);
+}
+
+.fontBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  border-radius: 99px;
+  transition: width 0.25s ease;
+  min-width: 8px;
+}
